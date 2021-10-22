@@ -10,6 +10,7 @@ namespace TradeCategoryQuestionConsole.Business
 
         public ValidateTrade()
         {
+            //_rules.Add(new PEPValidation());
             _rules.Add(new ExpiredValidation());
             _rules.Add(new HighRiskValidation());
             _rules.Add(new MediumRiskValidation());

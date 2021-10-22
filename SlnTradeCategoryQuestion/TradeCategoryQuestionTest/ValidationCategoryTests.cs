@@ -11,13 +11,14 @@ namespace TradeCategoryQuestionTest
         private ExpiredValidation expiredValidation;
         private HighRiskValidation highRiskValidation;
         private MediumRiskValidation mediumRiskValidation;
-
+        private PEPValidation pEPValidation;
         [SetUp]
         public void SetUp()
         {
             expiredValidation = new ExpiredValidation();
             highRiskValidation = new HighRiskValidation();
             mediumRiskValidation = new MediumRiskValidation();
+            pEPValidation = new PEPValidation();
         }
 
         [Test]
@@ -44,6 +45,12 @@ namespace TradeCategoryQuestionTest
             Assert.That(result, Is.EqualTo("MEDIUMRISK"));
         }
 
-
+        //[Test]
+        //public void ValidateCategoryPEP()
+        //{
+        //    Trade trade = new Trade("12/11/2020 3000000 Public 10/26/2023 TRUE");
+        //    var result = pEPValidation.ValidateCategory(trade);
+        //    Assert.That(result, Is.EqualTo("POLITICALLY EXPOSED PERSON"));
+        //}
     }
 }

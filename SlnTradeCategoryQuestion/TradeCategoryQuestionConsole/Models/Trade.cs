@@ -11,17 +11,18 @@ namespace TradeCategoryQuestionConsole.Models
         public double Value { get; }
         public string ClientSector { get; }
         public DateTime NextPaymentDate { get; }
+        //public bool IsPoliticallyExposed { get; }
 
         public Trade(string inputConsole)
         {
             CultureInfo culture = new CultureInfo("en-US");
             string[] input = inputConsole.Split(' ');
 
-            this.ReferenceDate = DateTime.Parse(input[0]);
+            this.ReferenceDate = Convert.ToDateTime(input[0], culture);
             this.Value = Double.Parse(input[1]);
             this.ClientSector = input[2];
             this.NextPaymentDate = Convert.ToDateTime(input[3], culture);
-            //
+            //this.IsPoliticallyExposed = input[4].ToUpper() == "TRUE";
         }
 
     }

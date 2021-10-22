@@ -19,19 +19,16 @@ namespace TradeCategoryQuestionConsole
 
             IValidateTrade _validateTrade = _serviceProvider.GetRequiredService<IValidateTrade>();
 
-            DateTime ReferenceDate;
+            string ReferenceDate;
             int QtdTrades = 0;
             List<Trade> ListTrades = new List<Trade>();
 
             try
             {
-
                 Console.WriteLine("Welcome");
                 string inputConsole = null;
                 inputConsole = Console.ReadLine();
-
-                if (!DateTime.TryParse(inputConsole, out ReferenceDate))
-                    Console.WriteLine("Reference Date Invalid!");
+                ReferenceDate = inputConsole;
 
                 inputConsole = Console.ReadLine();
                 if (!Int32.TryParse(inputConsole, out QtdTrades))
@@ -40,7 +37,7 @@ namespace TradeCategoryQuestionConsole
                 for(int i = 0; i < QtdTrades; i++)
                 {
                     inputConsole = Console.ReadLine();
-                    ListTrades.Add(new Trade(ReferenceDate.ToString("yyyy/MM/dd") + ' ' + inputConsole));
+                    ListTrades.Add(new Trade(ReferenceDate + ' ' + inputConsole));
                 }
 
                 foreach (Trade t in ListTrades)
@@ -56,6 +53,9 @@ namespace TradeCategoryQuestionConsole
             }
             finally
             {
+                Console.WriteLine("------------------------\n");
+                Console.WriteLine("Press Enter to close the app.");
+                Console.WriteLine("\n"); 
                 DisposeServices();
             }
                 

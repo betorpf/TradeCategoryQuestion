@@ -7,5 +7,7 @@ namespace TradeCategoryQuestionConsole.Interfaces
         DateTime ReferenceDate { get; } //indicates the reference date to calculate expired trades
         double Value { get; } //indicates the transaction amount in dollars
         string ClientSector { get; } //indicates the client´s sector which can be "Public" or "Private"
+        
+        //bool IsPoliticallyExposed { get; } //indicate the client is a politically exposed person
     }
 }
